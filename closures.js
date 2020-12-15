@@ -21,14 +21,11 @@ function outer() {
   Above you're given a function that returns another function which has a closure over the name variable.
   Invoke outer saving the return value into another variable called 'inner'.
 */
-  
-// Code Here
-
-
-
+const inner = outer()
+// 
 //Once you do that, invoke inner.
 
-//Code Here
+inner()
 
 
 
@@ -51,7 +48,7 @@ function callFriend(name) {
   (HINT: You will need to pass in arguments to both function invocations)
 */
 
-//Code Here
+const callJake = callFriend('Jake', '435-555-9248');
 
 
 
@@ -62,15 +59,21 @@ function callFriend(name) {
 */
 
 //Code Here
+function makeCounter(){
+    let num =0;
+    function incOne(){
+      return ++num;
+    }
+    return incOne;
+  };
 
-
-
+// 
 //Uncomment this once you make your function
-//   var count = makeCounter();
-//   count(); // 1
-//   count(); // 2
-//   count(); // 3
-//   count(); // 4
+  var count = makeCounter();
+  // count(1); // 1
+  // count(2); // 2
+  // count(3); // 3
+  // count(4); // 4
 
 
 
@@ -86,14 +89,17 @@ function callFriend(name) {
 */
 
 function counterFactory(value) {
-  // Code here.
-
   return {
-
+    inc: function(num){
+      return value += num;
+    },
+    dec: function(num){
+      return value -= num;
+    }
   };
 }
 
-counter = counterFactory(10);
+// counter = counterFactory(10);
 // counter.inc() // 11
 // counter.inc() // 12
 // counter.inc() // 13
@@ -162,11 +168,17 @@ function secretNumber() {
   var secret = 143;
 
   return {
-    // Code here
+    addToSecret: function(num){
+      return secret += num;
+    },
+    takeAwayFromSecret: function(num){
+      return secret -=num;
+    }
   };
 }
 
-
+updateSecret = secretNumber()
+updateSecret.addToSecret(1);
 
 ////////// PROBLEM 8 //////////
   
@@ -185,9 +197,10 @@ function secretNumber() {
   
   Fix the code below to log the desired output.
 */
+let i;
 
 function timeOutCounter() {
-  for (var i = 0; i <= 5; i++) {
+  for (let i = 0; i <= 5; i++) {
     setTimeout(function() {
       console.log(i);
     }, i * 1000);
