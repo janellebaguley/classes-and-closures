@@ -58,16 +58,12 @@ Employee.Widget()
 */
 
 class Manager extends Employee {
-  constructor(first_name, last_name, email, age, reports){
+  constructor(first_name, last_name, email, age, reports, hire, fire){
     super(first_name, last_name, email, age);
-    this.reports = reports;
-  }
-  hire(newEmployee){
-
-  }
-  fire(index){
-    
-  }
+    this.reports = [];
+    this.hire += this.employee;
+    this.fire -= this.employee;
+  } 
 }
 
 
@@ -92,8 +88,13 @@ class Manager extends Employee {
   Call your new class ProgressiveManager
 */
 
-//Code Here
-
+class ProgressiveManager extends Manager{
+  constructor( reports, hire, fire, title, bonus){
+  super( reports, hire, fire)
+      this.title= `Not a manager`;
+      this.bonus = 0;
+}
+}
 
 
 ////////// PROBLEM 4 - Black Diamond //////////
