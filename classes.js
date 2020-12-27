@@ -62,6 +62,12 @@ class Manager extends Employee {
     super(first_name, last_name, email, age);
     this.reports = reports;
   }
+  hire(newEmployee){
+
+  }
+  fire(index){
+    
+  }
 }
 
 

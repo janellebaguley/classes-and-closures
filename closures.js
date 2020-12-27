@@ -99,8 +99,8 @@ function counterFactory(value) {
   };
 }
 
-// counter = counterFactory(10);
-// counter.inc() // 11
+counterFactory();
+// counter.inc(1) // 11
 // counter.inc() // 12
 // counter.inc() // 13
 // counter.dec() // 12
@@ -118,7 +118,9 @@ function counterFactory(value) {
 function motivation( firstname, lastname ) {
   var welcomeText = "You're doing awesome, keep it up";
 
-  // code message function here.
+ return function(message){
+   return `You're doing awesome, keep it up ${firstname} ${lastname}.`
+ }
 
   //Uncommment this to return the value of your message function
   //return message;
@@ -149,7 +151,10 @@ var module = (function() {
   // Anything that is being returned is made public and can be invoked from
   // outside our lexical scope
   return {
-    // Code here.
+    publicMethod: function(){
+      return privateMethod()
+      return module.publicMethod()
+    }
   };
 })();
 
